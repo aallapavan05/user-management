@@ -1,6 +1,3 @@
-#!/bin/bash
-# create_users.sh - Simple version (works in WSL/Ubuntu)
-
 INPUT_FILE=$1
 LOG_FILE="/var/log/user_management.log"
 PASSWORD_FILE="/var/secure/user_passwords.txt"
