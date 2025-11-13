@@ -1,0 +1,5 @@
+# username;groups
+pavan; dev,tester,Ai
+kalyan; dev
+john; dev,Ai
+
