@@ -21,8 +21,8 @@ Input File Format:
 Each line in the input file should contain the username and comma-separated groups.
 
 Example (users.txt):
-
-                # username;groups
+     
+    # username;groups
 
 pavan; dev,tester,Ai
 
@@ -33,14 +33,19 @@ john; dev,Ai
 Script:
 
 #!/bin/bash
+
     # create_users.sh - Automates Linux user creation and group management
+    
     # Author: our Name
+    
     # Usage: sudo bash create_users.sh users.txt
 
     # Input file passed as first argument
+    
 INPUT_FILE=$1
 
     # 2. Define log and password storage locations
+    
 LOG_FILE="/var/log/user_management.log"
 PASSWORD_FILE="/var/secure/user_passwords.txt"
 
