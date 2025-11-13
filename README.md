@@ -1,17 +1,23 @@
  User Management Automation (SysOps Challenge):
 
  Purpose of the Script: 
+ 
 ->The create_users.sh script automates the process of creating and managing multiple user accounts in Linux.
+
 ->It reads a structured input file containing usernames and their group memberships, creates each user, assigns them to groups, generates random passwords, and logs all actions securely.
+
 ->This is especially useful for System Administrators (SysOps) who need to onboard new employees quickly and securely.
 
 Script File:
+
 Filename: create_users.sh
 
 Usage:
+
 sudo bash create_users.sh users.txt
 
 Input File Format:
+
 Each line in the input file should contain the username and comma-separated groups.
 
 Example (users.txt):
