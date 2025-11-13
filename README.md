@@ -21,52 +21,56 @@ Input File Format:
 Each line in the input file should contain the username and comma-separated groups.
 
 Example (users.txt):
-# username;groups
+
+    # username;groups
+
 pavan; dev,tester,Ai
+
 kalyan; dev
+
 john; dev,Ai
 
 Script:
 
 #!/bin/bash
-# create_users.sh - Automates Linux user creation and group management
-# Author: our Name
-# Usage: sudo bash create_users.sh users.txt
+    # create_users.sh - Automates Linux user creation and group management
+    # Author: our Name
+    # Usage: sudo bash create_users.sh users.txt
 
-# Input file passed as first argument
+    # Input file passed as first argument
 INPUT_FILE=$1
 
-# 2. Define log and password storage locations
+    # 2. Define log and password storage locations
 LOG_FILE="/var/log/user_management.log"
 PASSWORD_FILE="/var/secure/user_passwords.txt"
 
-# 3. Create secure directories if they don't exist
+    # 3. Create secure directories if they don't exist
 mkdir -p /var/secure
 chmod 700 /var/secure
 
-# 4. Initialize log and password files with correct permissions
+    # 4. Initialize log and password files with correct permissions
 touch "$LOG_FILE"
 chmod 600 "$LOG_FILE"
 touch "$PASSWORD_FILE"
 chmod 600 "$PASSWORD_FILE"
 
-# 5. Read input file line by line
+    # 5. Read input file line by line
 while IFS= read -r line; do
-  # 6. Skip empty lines or lines starting with '#'
+    # 6. Skip empty lines or lines starting with '#'
   if [[ -z "$line" ]] || [[ "$line" =~ ^# ]]; then
     continue
   fi
 
-  # 7. Extract username (before ';') and trim spaces
+    # 7. Extract username (before ';') and trim spaces
   username=$(echo "$line" | cut -d';' -f1 | xargs)
 
-  # 8. Extract groups (after ';') and remove spaces
+    # 8. Extract groups (after ';') and remove spaces
   groups=$(echo "$line" | cut -d';' -f2 | tr -d ' ')
 
-  # 9. Generate a random 12-character password
+    # 9. Generate a random 12-character password
   password=$(openssl rand -base64 9)
 
-  # 10. Check if user already exists
+    # 10. Check if user already exists
   if ! id "$username" &>/dev/null; then
     # 11. Create the user with home directory and bash shell
     useradd -m -s /bin/bash "$username"
@@ -99,11 +103,15 @@ done < "$INPUT_FILE"
 
 
 ->Create the user input file:
+
 nano users.txt
 
-# username;groups
+    # username;groups
+    
 pavan; dev,tester,Ai
+
 kalyan; dev
+
 john; dev,Ai
 
 
