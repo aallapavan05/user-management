@@ -40,12 +40,11 @@ Script:
     
     # Usage: sudo bash create_users.sh users.txt
 
-    # Input file passed as first argument
+    # 1. Input file passed as first argument
     
 INPUT_FILE=$1
 
-    # 2. Define log and password storage locations
-    
+    # 2. Define log and password storage locations    
 LOG_FILE="/var/log/user_management.log"
 PASSWORD_FILE="/var/secure/user_passwords.txt"
 
