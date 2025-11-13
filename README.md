@@ -33,7 +33,7 @@ Script:
 # Author: our Name
 # Usage: sudo bash create_users.sh users.txt
 
-# 1. Input file passed as first argument
+# Input file passed as first argument
 INPUT_FILE=$1
 
 # 2. Define log and password storage locations
@@ -110,38 +110,53 @@ john; dev,Ai
 Save and exit.
 
 -> Run the script
+
 sudo bash create_users.sh users.txt
 
 -> Verify results
 
 ->Check created users:
+
 id pavan
 id kalyan
 id john
+
 Check password file:
+
 sudo cat /var/secure/user_passwords.txt
 
 Check logs:
+
 sudo cat /var/log/user_management.log
 
  Security Considerations:
 
 1)/var/secure/user_passwords.txt is created with permission 600 (read/write only for root).
+
 2) Passwords are randomly generated using openssl rand.
+ 
 3) /var/log/user_management.log is protected with 600 permissions.
+ 
 4) Script requires sudo/root privileges to manage system users and groups.
+ 
 5) Never share or upload the /var/secure directory to public repositories.
 
  Error Handling:
 
 ->If a group doesn’t exist → it’s automatically created.
+
 ->If a user already exists → skipped with a log message.
+
 ->If the input file is missing or unreadable → script exits with an error.
+
 ->All successes and failures are logged in /var/log/user_management.log.
 
 End Result:
 
 1)Users created with home directories (/home/username)
+
 2)Users assigned to correct groups
+
 3)Secure passwords stored safely
+
 4)Full audit trail logged for admin verification
