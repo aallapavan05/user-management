@@ -22,7 +22,7 @@ Each line in the input file should contain the username and comma-separated grou
 
 Example (users.txt):
 
-    # username;groups
+                # username;groups
 
 pavan; dev,tester,Ai
 
